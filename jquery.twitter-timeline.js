@@ -38,7 +38,8 @@
 			var tweet = tweetTemplate
 				.replace('CONTENT', ify.clean(data[i].text))
 				.replace('TIME', timeAgo(data[i].created_at));
-			$container.append(tweet);	
+				
+			$container.append(tweet); 
 		};		
 	};
 		
@@ -153,10 +154,13 @@
 	// -- Public ------------------------------------------------------------------------------------------------------------------
 	//	
 
+	/**
+		* Initialize the timeline (public)
+		* @param {string} twitter user name (scren name with or without the @-prefix)		
+		*/	
 	$.fn.twitterTimeline = function(user) {
 		
-		$container = $(this);
-		
+		$container = $(this);		
 		loadTweets(user);
 	
 	};
