@@ -7,12 +7,13 @@
 	//
 	// -- Private ------------------------------------------------------------------------------------------------------------------
 	//
+	
 	var tweetTemplate = '<li class="tweet">CONTENT<div class="time">TIME</div></li>'; 
 	var $container = null;
 
 	/**
 		* load some tweets using the user_timeline API
-		* background: https://dev.twitter.com/docs/api/1/get/statuses/user_timeline
+		* documentation: https://dev.twitter.com/docs/api/1/get/statuses/user_timeline
 		* @param {string} twitter user name (scren name with or without the @-prefix)
 		*/
 	function loadTweets(user) {
@@ -42,6 +43,10 @@
 			$container.append(tweet); 
 		};		
 	};
+
+	//
+	// -- Private utility functions ------------------------------------------------------------------------------------------------------------------
+	//	the following two functions are helpers for formatting entries. You probably shouldn't change any of that code.
 		
 	/**
 		* relative time calculator
