@@ -65,3 +65,17 @@ p
 {
 	padding: 4px;
 }
+
+footer{
+	margin-top: 20 px;
+	width:80%;
+	margin-left:20%;
+	margin-right: 20%;
+	text-align: center;
+	background-color: rgba(50,10,200,0.1);
+	border-radius: 10px;
+}
+
+footer p{
+	color: rgb(0,0,0);
+}

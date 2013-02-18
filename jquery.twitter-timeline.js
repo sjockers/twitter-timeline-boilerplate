@@ -66,7 +66,7 @@
 			tweetHeader.append(formatName(data[i].user.name));
 			
 
-			if(data.retweeted == true){
+			if(data[i].retweeted == true){
 			$("li").removeClass("tweet");
 			$("li").addClass("retweeted");
 			}
@@ -90,14 +90,6 @@
 			var tweetHeader = $("<div/>").addClass("tweetHead");
 			tweetHeader.append(positionPicture(results[i].profile_image_url));
 			tweetHeader.append(formatName(results[i].from_user_name));
-			
-
-			if(data.retweeted == true){
-			$("li").addClass("retweeted");
-			}
-
-			//tweet.prepend(positionPicture(results[i].profile_image_url));
-			//tweet.prepend(formatName(results[i].from_user_name));
 
 			tweet.prepend(tweetHeader);
 			$container.append(tweet);
