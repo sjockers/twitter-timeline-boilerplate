@@ -84,7 +84,9 @@
 			var tweet = $(tweetTemplate
 				.replace('CONTENT', ify.clean(results[i].text))
 				.replace('TIME', timeAgo(results[i].created_at)));
-			
+			console.log(data);
+
+	
 			var tweetHeader = $("<div/>").addClass("tweetHead");
 			tweetHeader.append(positionPicture(results[i].profile_image_url));
 			tweetHeader.append(formatName(results[i].from_user_name));

@@ -84,7 +84,9 @@
 			var tweet = $(tweetTemplate
 				.replace('CONTENT', ify.clean(results[i].text))
 				.replace('TIME', timeAgo(results[i].created_at)));
-			
+			console.log(results);
+
+	
 			var tweetHeader = $("<div/>").addClass("tweetHead");
 			tweetHeader.append(positionPicture(results[i].profile_image_url));
 			tweetHeader.append(formatName(results[i].from_user_name));
@@ -94,8 +96,10 @@
 			$("li").addClass("retweeted");
 			}
 
-			tweet.prepend(positionPicture(results[i].profile_image_url));
-			tweet.prepend(formatName(results[i].from_user_name));
+			//tweet.prepend(positionPicture(results[i].profile_image_url));
+			//tweet.prepend(formatName(results[i].from_user_name));
+
+			tweet.prepend(tweetHeader);
 			$container.append(tweet);
 		};
 	}

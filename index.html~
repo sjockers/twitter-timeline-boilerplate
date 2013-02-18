@@ -7,30 +7,39 @@
 	<script src="jquery.twitter-timeline.js"></script>
 	<script>
 		$(document).ready(function($) {
-<<<<<<< HEAD
-			$("#tweets").twitterTimeline("@re");
-		});		
-	</script>
-</head>
-<body>
-=======
-			$("#tweets").twitterTimeline("@htw_berlin");
-		});		
+			$("#tweets").twitterTimeline({mode:"timeline", user: "@htw_berlin"});
+
+			function doSearch() {
+				var term = $("#search").val();
+				$("#tweets").twitterTimeline({mode:"search", query: term});
+			}
+
+			$("#search-form").on("submit", function(e) {
+				e.preventDefault();
+				doSearch();
+			});
+
+			$("#search-form").on("keypress", function(e) {
+				if (e.charCode == 13) { // if enter is the key
+					e.preventDefault();
+					doSearch();
+				}
+			});
+		});
 	</script>
 	<link rel="stylesheet" href="style_reset.css" />
 	<link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 	<div id="inputs">
-		
+		<form name="search-form" id="search-form" action="">
+			<input type="text" value="" name="search" id="search" />
+		</form>
 	</div>
->>>>>>> 64e38e22f19a3e11d564b902e15976760a2ecda2
 	
 	<ul id="tweets"></ul>
 
 </body>
-<<<<<<< HEAD
+
 </html>
-=======
-</html>
->>>>>>> 64e38e22f19a3e11d564b902e15976760a2ecda2
+
