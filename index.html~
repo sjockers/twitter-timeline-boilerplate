@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>GIM Twitter Feed Example</title>
+	<script src="http://code.jquery.com/jquery-1.7.2.js"></script>	
+	<script src="jquery.twitter-timeline.js"></script>
+	<script>
+		$(document).ready(function($) {
+		
+	
+			function doSearch() {
+				$("#startup").remove();
+				var term = $("#search").val();
+				$("#tweets").twitterTimeline({mode:"search", query: term});
+			}
+			
+			function getUser() {
+				$("#startup").remove();
+				var username = $("#user").val();
+				$("#tweets").twitterTimeline({mode:"timeline", user: username});
+			}
+
+			$("#search-form").on("submit", function(e) {
+				e.preventDefault();
+				doSearch();
+			});
+			
+			$("#user-form").on("submit", function(e) {
+				e.preventDefault();
+				getUser();
+			});
+
+			$("#search").on("keypress", function(e) {
+				if (e.charCode == 13) { // if enter is the key
+					e.preventDefault();
+					doSearch();
+				}
+			});
+			
+			$("#user").on("keypress", function(e) {
+				if (e.charCode == 13) { // if enter is the key
+					e.preventDefault();
+					getUser();
+				}
+			});
+		});
+	</script>
+	<link rel="stylesheet" href="style_reset.css" />
+	<link rel="stylesheet" href="style2.css"/>
+</head>
+<body>
+
+	<img src="fat_bird.png" id="startup" alt="a fat bird"/>
+	<div id="inputs">
+	
+		<form name="search-form" id="search-form" action="">
+			<input type="text" placeholder="Search" name="search" id="search">
+			<input type="submit" value="Search" name="submit" id="search-submit" />
+		</form>
+		
+		<form name="user-form" id="user-form" action="">
+  			<input type="text" name="username" id="user" placeholder="Search by @Username"> 			
+  			<input type="submit" value="Get Feed" name="submit" id="username-submit" />
+		</form>
+	</div>
+	
+	<ul id="tweets"></ul>
+	<footer><p>Copyright by awesome people. And blabla, you know what I mean.</p></footer>
+</body>
+
+</html>
+

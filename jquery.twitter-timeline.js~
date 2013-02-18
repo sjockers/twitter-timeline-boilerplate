@@ -118,7 +118,11 @@
 	
 
 	
-	
+	function startup theme(){
+		if (nosearch == true){
+		var birdy = $("img").attr("src", fat_bird.png);
+		
+	}
 
 	//
 	// -- Private utility functions ------------------------------------------------------------------------------------------------------------------
