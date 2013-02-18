@@ -3,20 +3,23 @@
 body 
 {
 	font-family: Verdana, Helvetica, sans-serif;
-	background: url(images2.png);
-	color: #8CC6C6;
+	background: url(background2.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	color: #C2C2FF;
 	font-size: 14px;
 }
 
 ul
 {
-	background-color: #40A0A0;
-	margin-left: 200px;
-	margin-right: 200px;
+	
+	margin-top: 80px;
+	margin-left: 250px;
+	margin-right: 250px;
 	padding: 20px;
 	border-radius: 7px;
-}
 
+<<<<<<< HEAD
 
 .retweeted{
 	background-color: rgba(220,50,100,0.8);
@@ -33,25 +36,27 @@ header{
 	background-color: rgba(30,0,200, 0.2);
 } 
 
+=======
+}
+
+>>>>>>> d21b206ac229784ead32f2fb87b9dada2ed090c8
 ul li
 {
 	
 	display: block;
 	margin-bottom: 10px;
-	background-color: #196C6C;
+	background-color: #384C72;
 	border-radius: 5px;
 	padding-left: 5px;
 	padding-bottom: 10px;
+	box-shadow: 1px 5px 10px rgba(0,0,0,0.5);
 }
 
 a
 {
 	text-decoration: none;
-	display: block;
 	color: #0A2B2B;
 }
-
-
 
 h3
 {
@@ -63,9 +68,11 @@ h3
 
 p
 {
-	padding: 4px;
+	padding-top: 6px;
+	padding-bottom: 6px;
 }
 
+<<<<<<< HEAD
 footer{
 	margin-top: 20 px;
 	width:80%;
@@ -78,3 +85,9 @@ footer{
 footer p{
 	color: rgb(0,0,0);
 }
+=======
+a:visited
+	{
+	background-color: #DCDC80; 
+	}
+>>>>>>> d21b206ac229784ead32f2fb87b9dada2ed090c8
