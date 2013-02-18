@@ -20,25 +20,25 @@ div#bg
 @keyframes fly
 {
 	from { left:0px;}
-	to {left:-1200px;}
+	to {left:-800px;}
 }
 
 @-moz-keyframes fly /* Firefox */
 {
 	from {left:0px;}
-	to {left:-1200px;}
+	to {left:-800px;}
 }
 
 @-webkit-keyframes fly /* Safari and Chrome */
 {
 	from {left:0px;}
-	to {left:-1200px;}
+	to {left:-800px;}
 }
 
 @-o-keyframes fly /* Opera */
 {
 	from {left:0px;}
-	to {left:-1200px;}
+	to {left:-800px;}
 } 
 
 ul
