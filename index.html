@@ -7,14 +7,15 @@
 	<script src="jquery.twitter-timeline.js"></script>
 	<script>
 		$(document).ready(function($) {
-			$("#tweets").twitterTimeline({mode:"timeline", user: "@HTW_Berlin"});
 
 			function doSearch() {
+			    $("#startup").remove();
 				var term = $("#search").val();
 				$("#tweets").twitterTimeline({mode:"search", query: term});
 			}
 			
 			function getUser() {
+				$("#startup").remove();
 				var username = $("#user").val();
 				$("#tweets").twitterTimeline({mode:"timeline", user: username});
 			}
@@ -64,6 +65,8 @@
   			<input type="submit" value="Get Feed" name="submit" id="username-submit" />
 		</form>
 	</div>
+	
+	<img src="fat_bird.png" id="startup" alt="fat bird"/>
 	
 	<ul id="tweets"></ul>
 
