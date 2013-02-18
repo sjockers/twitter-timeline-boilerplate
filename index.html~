@@ -7,14 +7,16 @@
 	<script src="jquery.twitter-timeline.js"></script>
 	<script>
 		$(document).ready(function($) {
-			$("#tweets").twitterTimeline({mode:"timeline", user: "@LJR"});
-
+		
+	
 			function doSearch() {
+				$("#startup").remove();
 				var term = $("#search").val();
 				$("#tweets").twitterTimeline({mode:"search", query: term});
 			}
 			
 			function getUser() {
+				$("#startup").remove();
 				var username = $("#user").val();
 				$("#tweets").twitterTimeline({mode:"timeline", user: username});
 			}
@@ -45,19 +47,22 @@
 		});
 	</script>
 	<link rel="stylesheet" href="style_reset.css" />
-	<link rel="stylesheet" href="style.css"/>
+	<link rel="stylesheet" href="style2.css"/>
 </head>
 <body>
+
+	<img src="fat_bird.png" id="startup" alt="a fat bird"/>
 	<div id="inputs">
 	
 		<form name="search-form" id="search-form" action="">
-			<input type="text" value="Search" name="search" id="search">
+			<input type="text" placeholder="Search" name="search" id="search">
+			<input type="submit" value="Search" name="submit" id="search-submit" />
 		</form>
 		
 		<form name="user-form" id="user-form" action="">
-  			<input type="text" name="username" id="user" value="@Username"> 			
+  			<input type="text" name="username" id="user" placeholder="Search by @Username"> 			
+  			<input type="submit" value="Get Feed" name="submit" id="username-submit" />
 		</form>
-		
 	</div>
 	
 	<ul id="tweets"></ul>

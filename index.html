@@ -7,14 +7,16 @@
 	<script src="jquery.twitter-timeline.js"></script>
 	<script>
 		$(document).ready(function($) {
-			$("#tweets").twitterTimeline({mode:"timeline", user: "@JNB_de"});
-
+		
+	
 			function doSearch() {
+				$("#startup").remove();
 				var term = $("#search").val();
 				$("#tweets").twitterTimeline({mode:"search", query: term});
 			}
 			
 			function getUser() {
+				$("#startup").remove();
 				var username = $("#user").val();
 				$("#tweets").twitterTimeline({mode:"timeline", user: username});
 			}
@@ -48,6 +50,8 @@
 	<link rel="stylesheet" href="style2.css"/>
 </head>
 <body>
+
+	<img src="fat_bird.png" id="startup" alt="a fat bird"/>
 	<div id="inputs">
 	
 		<form name="search-form" id="search-form" action="">

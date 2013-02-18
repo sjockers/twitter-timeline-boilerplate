@@ -1,27 +1,27 @@
-
-
 body 
 {
 	font-family: Verdana, Helvetica, sans-serif;
 	background: url(background2.jpg);
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	color: #C2C2FF;
+	color: #C8DBE0;
 	font-size: 14px;
 }
 
 ul
 {
-	
-	margin-top: 80px;
+	margin-top: 50px;
 	margin-left: 250px;
 	margin-right: 250px;
+<<<<<<< HEAD
 	padding: 20px;
 	border-radius: 7px;
 
 
 .retweeted{
 	background-color: rgba(220,50,100,0.8);
+=======
+>>>>>>> 149ddd4b5ff76ebea224bf245cacb09bbb497a7b
 }
 
 div.tweetHead img{
@@ -38,14 +38,36 @@ header{
 
 ul li
 {
-	
 	display: block;
 	margin-bottom: 10px;
-	background-color: #384C72;
+	background-color: #59747D;
 	border-radius: 5px;
-	padding-left: 5px;
-	padding-bottom: 10px;
+	padding: 11px;
 	box-shadow: 1px 5px 10px rgba(0,0,0,0.5);
+	opacity: 0.8;
+}
+
+.tweetHead img {
+	margin: 0 10px 5px 0;
+	float: left;
+}
+
+div#inputs
+{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 40px;
+	overflow: auto;
+	background-color: rgba(255,255,255,0.3);
+	text-align: center;
+}
+
+div#inputs form
+{
+	padding-top: 8px;
+	display: inline-block;
 }
 
 a
@@ -57,15 +79,13 @@ a
 h3
 {
 	font-weight: bold;
-	padding-bottom: 7px;
-	padding-top: 7px;
-	font-size: 16;
+	font-size: 17px;
 }
 
-p
+p, h3
 {
-	padding-top: 6px;
-	padding-bottom: 6px;
+	padding-top: 7px;
+	padding-bottom: 7px;
 }
 
 
@@ -86,4 +106,8 @@ a:visited
 	{
 	background-color: #DCDC80; 
 	}
+
+#startup{
+	float: right;
+}
 
