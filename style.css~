@@ -17,9 +17,12 @@ ul
 	border-radius: 7px;
 }
 
-ul li.retweeted{
+li.retweeted{
 	background-color: rgba(220,50,100,0.8);
 }
+
+div.tweetHead img{
+	float: left;}
 
 ul li
 {
@@ -39,9 +42,7 @@ a
 	color: #0A2B2B;
 }
 
-div tweetHead{
-	display: inline-block;
-}
+
 
 h3
 {

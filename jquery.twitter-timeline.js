@@ -61,13 +61,14 @@
 			
 			console.log(data);
 
-			var tweetHeader = $("<div/>").addClass("tweetHead")
+			var tweetHeader = $("<div/>").addClass("tweetHead");
 			tweetHeader.append(positionPicture(data[i].user.profile_image_url));
 			tweetHeader.append(formatName(data[i].user.name));
 			
 
 			if(data.retweeted == true){
-			tweet.addClass("retweeted");
+			$("li").removeClass("tweet");
+			$("li").addClass("retweeted");
 			}
 
 			tweet.prepend(tweetHeader);
@@ -76,15 +77,27 @@
 		};
 	};
 
-	function displaySearchResults(data) {
+	function displaySearchResults(data) {	
 		var results = data.results;
 		$container.empty();
 		for (var i = 0; i < results.length; i++) {
 			var tweet = $(tweetTemplate
 				.replace('CONTENT', ify.clean(results[i].text))
 				.replace('TIME', timeAgo(results[i].created_at)));
+			
+			var tweetHeader = $("<div/>").addClass("tweetHead");
+			tweetHeader.append(positionPicture(results[i].profile_image_url));
+			tweetHeader.append(formatName(results[i].from_user_name));
+			
 
-			tweet.prepend(formatName(results[i].from_user_name));
+			if(data.retweeted == true){
+			$("li").addClass("retweeted");
+			}
+
+			//tweet.prepend(positionPicture(results[i].profile_image_url));
+			//tweet.prepend(formatName(results[i].from_user_name));
+
+			tweet.prepend(tweetHeader);
 			$container.append(tweet);
 		};
 	}

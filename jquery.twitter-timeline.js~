@@ -8,37 +8,43 @@
 	// -- Private ------------------------------------------------------------------------------------------------------------------
 	//
 	
-<<<<<<< HEAD
-	var tweetTemplate = '<li class="tweet">CONTENT<div class="time">TIME</div></li>'; 
-=======
 	var tweetTemplate = '<li class="tweet"><p>CONTENT</p><div class="time">TIME</div></li>'; 
->>>>>>> 64e38e22f19a3e11d564b902e15976760a2ecda2
+
 	var $container = null;
 
 	/**
 		* load some tweets using the user_timeline API
 		* documentation: https://dev.twitter.com/docs/api/1/get/statuses/user_timeline
-<<<<<<< HEAD
 		* @param {string} twitter user name (screen name with or without the @-prefix)
-=======
-		* @param {string} twitter user name (scren name with or without the @-prefix)
->>>>>>> 64e38e22f19a3e11d564b902e15976760a2ecda2
+
 		*/
-	function loadTweets(user) {
+	function loadTimeline(user) {
 		$.ajax({
 			url: 'http://api.twitter.com/1/statuses/user_timeline.json/',
 			type: 'GET',
 			dataType: 'jsonp',
 			data: {
 				screen_name: user,
-<<<<<<< HEAD
+
 				include_rts: true,				
-=======
-				include_rts: true,		
->>>>>>> 64e38e22f19a3e11d564b902e15976760a2ecda2
+
 				include_entities: true
 			},			
-			success: displayTweets
+			success: displayTimeline
+		});
+	};
+
+	function loadSearch(query) {
+		$.ajax({
+			url: 'http://search.twitter.com/search.json',
+			type: 'GET',
+			dataType: 'jsonp',
+			data: {
+				q: query,
+				include_rts: true,
+				include_entities: true
+			},			
+			success: displaySearchResults
 		});
 	};
 
@@ -46,42 +52,58 @@
 		* add tweets to the DOM using a simple template
 		* @param {object} data returned from Twitter API
 		*/
-	function displayTweets(data) {
+	function displayTimeline(data) {
+		$container.empty();
 		for (var i = 0; i < data.length; i++) {
 			var tweet = $(tweetTemplate
 				.replace('CONTENT', ify.clean(data[i].text))
 				.replace('TIME', timeAgo(data[i].created_at)));
-<<<<<<< HEAD
 			
 			console.log(data);
 
-			var tweetHeader = $("<div/>").addClass("tweetHead")
+			var tweetHeader = $("<div/>").addClass("tweetHead");
 			tweetHeader.append(positionPicture(data[i].user.profile_image_url));
 			tweetHeader.append(formatName(data[i].user.name));
 			
 
 			if(data.retweeted == true){
-			tweet.addClass("retweeted");
+			$("li").removeClass("tweet");
+			$("li").addClass("retweeted");
 			}
 
 			tweet.prepend(tweetHeader);
-=======
 
-			tweet.prepend(formatName(data[i].user.name));
->>>>>>> 64e38e22f19a3e11d564b902e15976760a2ecda2
 			$container.append(tweet);
 		};
 	};
 
-<<<<<<< HEAD
+	function displaySearchResults(data) {	
+		var results = data.results;
+		$container.empty();
+		for (var i = 0; i < results.length; i++) {
+			var tweet = $(tweetTemplate
+				.replace('CONTENT', ify.clean(results[i].text))
+				.replace('TIME', timeAgo(results[i].created_at)));
+			
+			var tweetHeader = $("<div/>").addClass("tweetHead");
+			tweetHeader.append(positionPicture(results[i].profile_image_url));
+			tweetHeader.append(formatName(results[i].from_user_name));
+			
 
-=======
->>>>>>> 64e38e22f19a3e11d564b902e15976760a2ecda2
+			if(data.retweeted == true){
+			$("li").addClass("retweeted");
+			}
+
+			tweet.prepend(positionPicture(results[i].profile_image_url));
+			tweet.prepend(formatName(results[i].from_user_name));
+			$container.append(tweet);
+		};
+	}
+
 	function formatName(name) {
 		return $("<h3/>").text(name);
 	}
 
-<<<<<<< HEAD
 
 	function positionPicture(profPicUrl){ 
 		return $("<img/>").attr("src", profPicUrl);
@@ -89,8 +111,6 @@
 	
 
 
-=======
->>>>>>> 64e38e22f19a3e11d564b902e15976760a2ecda2
 	//
 	// -- Private utility functions ------------------------------------------------------------------------------------------------------------------
 	//	the following two functions are helpers for formatting entries. You probably shouldn't change any of that code.
@@ -204,19 +224,20 @@
 
 	//
 	// -- Public ------------------------------------------------------------------------------------------------------------------
-	//	
+	//
 
 	/**
 		* Initialize the timeline (public)
 		* @param {string} twitter user name (scren name with or without the @-prefix)		
 		*/	
-	$.fn.twitterTimeline = function(user) {
+	$.fn.twitterTimeline = function(options) {
 		$container = $(this);
-		loadTweets(user);
+		if (options.mode == "timeline")
+			loadTimeline(options.user);
+		else if (options.mode == "search")
+			loadSearch(options.query);
 	};
 	
-<<<<<<< HEAD
+
 })(jQuery);
-=======
-})(jQuery);
->>>>>>> 64e38e22f19a3e11d564b902e15976760a2ecda2
+
