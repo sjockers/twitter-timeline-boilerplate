@@ -13,7 +13,7 @@ body
 ul
 {
 	
-	margin-top: 80px;
+	margin-top: 35px;
 	margin-left: 250px;
 	margin-right: 250px;
 	padding: 20px;
@@ -23,14 +23,17 @@ ul
 
 ul li
 {
-	
 	display: block;
 	margin-bottom: 10px;
 	background-color: #59747D;
 	border-radius: 5px;
-	padding-left: 5px;
-	padding-bottom: 10px;
+	padding: 11px;
 	box-shadow: 1px 5px 10px rgba(0,0,0,0.5);
+}
+
+.tweetHead img {
+	margin: 0 5px 5px 0;
+	float: left;
 }
 
 div#inputs
@@ -71,7 +74,6 @@ p
 	padding-bottom: 6px;
 }
 
-a:visited
-	{
+a:visited {
 	background-color: #DCDC80; 
-	}
+}
