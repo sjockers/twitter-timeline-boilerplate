@@ -1,27 +1,57 @@
 body 
 {
 	font-family: Verdana, Helvetica, sans-serif;
-	background: url(background2.jpg);
-	background-repeat: no-repeat;
-	background-attachment: fixed;
 	color: #C8DBE0;
 	font-size: 14px;
 }
+
+div#bg
+{ 
+	position: fixed;
+	top: 0px;
+	left:0px;
+	animation: fly 100s infinite alternate;
+	-webkit-animation: fly 100s infinite alternate;
+	-moz-animation: fly 100s infinite alternate;
+	-o-animation: fly 100s infinite alternate;
+	z-index: -10;
+}
+
+@keyframes fly
+{
+	from { left:0px;}
+	to {left:-800px;}
+}
+
+@-moz-keyframes fly /* Firefox */
+{
+	from {left:0px;}
+	to {left:-800px;}
+}
+
+@-webkit-keyframes fly /* Safari and Chrome */
+{
+	from {left:0px;}
+	to {left:-800px;}
+}
+
+@-o-keyframes fly /* Opera */
+{
+	from {left:0px;}
+	to {left:-800px;}
+} 
 
 ul
 {
 	margin-top: 50px;
 	margin-left: 250px;
 	margin-right: 250px;
-<<<<<<< HEAD
 	padding: 20px;
 	border-radius: 7px;
 
 
 .retweeted{
 	background-color: rgba(220,50,100,0.8);
-=======
->>>>>>> 149ddd4b5ff76ebea224bf245cacb09bbb497a7b
 }
 
 div.tweetHead img{
@@ -40,7 +70,7 @@ ul li
 {
 	display: block;
 	margin-bottom: 10px;
-	background-color: #59747D;
+	background-color: rgba(89,116,125,0.8);
 	border-radius: 5px;
 	padding: 11px;
 	box-shadow: 1px 5px 10px rgba(0,0,0,0.5);
@@ -62,6 +92,7 @@ div#inputs
 	overflow: auto;
 	background-color: rgba(255,255,255,0.3);
 	text-align: center;
+	z-index: 10;
 }
 
 div#inputs form
