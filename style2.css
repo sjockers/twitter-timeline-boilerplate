@@ -12,7 +12,6 @@ body
 
 ul
 {
-	
 	margin-top: 80px;
 	margin-left: 250px;
 	margin-right: 250px;
@@ -23,7 +22,6 @@ ul
 
 ul li
 {
-	
 	display: block;
 	margin-bottom: 10px;
 	background-color: #384C72;
@@ -44,7 +42,7 @@ h3
 	font-weight: bold;
 	padding-bottom: 7px;
 	padding-top: 7px;
-	font-size: 16;
+	font-size: 17px;
 }
 
 p
