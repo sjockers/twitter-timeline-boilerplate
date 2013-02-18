@@ -36,18 +36,17 @@
 		*/
 	function displayTweets(data) {
 		for (var i = 0; i < data.length; i++) {
-			var tweet = tweetTemplate
+			var tweet = $(tweetTemplate
 				.replace('CONTENT', ify.clean(data[i].text))
-				.replace('TIME', timeAgo(data[i].created_at));
-			
-			console.log(data);
-			displayName(data.name);
+				.replace('TIME', timeAgo(data[i].created_at)));
+
+			tweet.prepend(formatName(data[i].user.name));
 			$container.append(tweet);
 		};
 	};
 
-	function displayName(name) {
-		$container.append("<h1>").text(name);
+	function formatName(name) {
+		return $("<h3/>").text(name);
 	}
 
 	//
