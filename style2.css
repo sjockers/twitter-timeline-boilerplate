@@ -31,6 +31,24 @@ ul li
 	box-shadow: 1px 5px 10px rgba(0,0,0,0.5);
 }
 
+div#inputs
+{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 40px;
+	overflow: auto;
+	background-color: rgba(255,255,255,0.3);
+	text-align: center;
+}
+
+div#inputs form
+{
+	padding-top: 8px;
+	display: inline-block;
+}
+
 a
 {
 	text-decoration: none;
