@@ -17,6 +17,14 @@ ul
 	border-radius: 7px;
 }
 
+li.retweeted{
+	background-color: rgba(220,50,100,0.8);
+}
+
+div.tweetHead img{
+	float: left;
+	margin: 5px;}
+
 ul li
 {
 	
@@ -35,6 +43,8 @@ a
 	color: #0A2B2B;
 }
 
+
+
 h3
 {
 	font-weight: bold;
@@ -45,6 +55,11 @@ h3
 
 p
 {
+<<<<<<< HEAD
 	padding-top: 6px;
 	padding-buttom: 6px;
 }
+=======
+	padding: 4px;
+}
+>>>>>>> 19c7ec1a5feb8968065d3c93af4709dc1dc82f3c
