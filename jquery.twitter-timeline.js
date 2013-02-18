@@ -8,13 +8,15 @@
 	// -- Private ------------------------------------------------------------------------------------------------------------------
 	//
 	
-	var tweetTemplate = '<li class="tweet">CONTENT<div class="time">TIME</div></li>'; 
+	var tweetTemplate = '<li class="tweet"><p>CONTENT</p><div class="time">TIME</div></li>'; 
+
 	var $container = null;
 
 	/**
 		* load some tweets using the user_timeline API
 		* documentation: https://dev.twitter.com/docs/api/1/get/statuses/user_timeline
 		* @param {string} twitter user name (screen name with or without the @-prefix)
+
 		*/
 	function loadTweets(user) {
 		$.ajax({
@@ -23,7 +25,9 @@
 			dataType: 'jsonp',
 			data: {
 				screen_name: user,
+
 				include_rts: true,				
+
 				include_entities: true
 			},			
 			success: displayTweets
@@ -52,10 +56,10 @@
 			}
 
 			tweet.prepend(tweetHeader);
+
 			$container.append(tweet);
 		};
 	};
-
 
 	function formatName(name) {
 		return $("<h3/>").text(name);
@@ -192,4 +196,6 @@
 		loadTweets(user);
 	};
 	
+
 })(jQuery);
+

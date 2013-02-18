@@ -8,13 +8,21 @@
 	// -- Private ------------------------------------------------------------------------------------------------------------------
 	//
 	
+<<<<<<< HEAD
 	var tweetTemplate = '<li class="tweet">CONTENT<div class="time">TIME</div></li>'; 
+=======
+	var tweetTemplate = '<li class="tweet"><p>CONTENT</p><div class="time">TIME</div></li>'; 
+>>>>>>> 64e38e22f19a3e11d564b902e15976760a2ecda2
 	var $container = null;
 
 	/**
 		* load some tweets using the user_timeline API
 		* documentation: https://dev.twitter.com/docs/api/1/get/statuses/user_timeline
+<<<<<<< HEAD
 		* @param {string} twitter user name (screen name with or without the @-prefix)
+=======
+		* @param {string} twitter user name (scren name with or without the @-prefix)
+>>>>>>> 64e38e22f19a3e11d564b902e15976760a2ecda2
 		*/
 	function loadTweets(user) {
 		$.ajax({
@@ -23,7 +31,11 @@
 			dataType: 'jsonp',
 			data: {
 				screen_name: user,
+<<<<<<< HEAD
 				include_rts: true,				
+=======
+				include_rts: true,		
+>>>>>>> 64e38e22f19a3e11d564b902e15976760a2ecda2
 				include_entities: true
 			},			
 			success: displayTweets
@@ -39,6 +51,7 @@
 			var tweet = $(tweetTemplate
 				.replace('CONTENT', ify.clean(data[i].text))
 				.replace('TIME', timeAgo(data[i].created_at)));
+<<<<<<< HEAD
 			
 			console.log(data);
 
@@ -52,14 +65,23 @@
 			}
 
 			tweet.prepend(tweetHeader);
+=======
+
+			tweet.prepend(formatName(data[i].user.name));
+>>>>>>> 64e38e22f19a3e11d564b902e15976760a2ecda2
 			$container.append(tweet);
 		};
 	};
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 64e38e22f19a3e11d564b902e15976760a2ecda2
 	function formatName(name) {
 		return $("<h3/>").text(name);
 	}
+
+<<<<<<< HEAD
 
 	function positionPicture(profPicUrl){ 
 		return $("<img/>").attr("src", profPicUrl);
@@ -67,6 +89,8 @@
 	
 
 
+=======
+>>>>>>> 64e38e22f19a3e11d564b902e15976760a2ecda2
 	//
 	// -- Private utility functions ------------------------------------------------------------------------------------------------------------------
 	//	the following two functions are helpers for formatting entries. You probably shouldn't change any of that code.
@@ -191,4 +215,8 @@
 		loadTweets(user);
 	};
 	
+<<<<<<< HEAD
 })(jQuery);
+=======
+})(jQuery);
+>>>>>>> 64e38e22f19a3e11d564b902e15976760a2ecda2
