@@ -7,22 +7,39 @@
 	<script src="jquery.twitter-timeline.js"></script>
 	<script>
 		$(document).ready(function($) {
-			$("#tweets").twitterTimeline({mode:"timeline", user: "@htw_berlin"});
+			$("#tweets").twitterTimeline({mode:"timeline", user: "@HTW_Berlin"});
 
 			function doSearch() {
 				var term = $("#search").val();
 				$("#tweets").twitterTimeline({mode:"search", query: term});
+			}
+			
+			function getUser() {
+				var username = $("#user").val();
+				$("#tweets").twitterTimeline({mode:"timeline", user: username});
 			}
 
 			$("#search-form").on("submit", function(e) {
 				e.preventDefault();
 				doSearch();
 			});
+			
+			$("#user-form").on("submit", function(e) {
+				e.preventDefault();
+				getUser();
+			});
 
-			$("#search-form").on("keypress", function(e) {
+			$("#search").on("keypress", function(e) {
 				if (e.charCode == 13) { // if enter is the key
 					e.preventDefault();
 					doSearch();
+				}
+			});
+			
+			$("#user").on("keypress", function(e) {
+				if (e.charCode == 13) { // if enter is the key
+					e.preventDefault();
+					getUser();
 				}
 			});
 		});
@@ -32,9 +49,15 @@
 </head>
 <body>
 	<div id="inputs">
+	
 		<form name="search-form" id="search-form" action="">
-			<input type="text" value="" name="search" id="search" />
+			<input type="text" value="Search" name="search" id="search">
 		</form>
+		
+		<form name="user-form" id="user-form" action="">
+  			<input type="text" name="username" id="user" value="@Username"> 			
+		</form>
+		
 	</div>
 	
 	<ul id="tweets"></ul>
