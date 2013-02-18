@@ -3,37 +3,32 @@
 body 
 {
 	font-family: Verdana, Helvetica, sans-serif;
-	background: url(images2.png);
+	background: url(blue3.jpg);
 	color: #8CC6C6;
 	font-size: 14px;
 }
 
 ul
 {
-	background-color: #40A0A0;
-	margin-left: 200px;
-	margin-right: 200px;
+	background-color: #248F8F;
+	margin-top: 80px;
+	margin-left: 250px;
+	margin-right: 250px;
 	padding: 20px;
 	border-radius: 7px;
-}
 
-li.retweeted{
-	background-color: rgba(220,50,100,0.8);
 }
-
-div.tweetHead img{
-	float: left;
-	margin: 5px;}
 
 ul li
 {
 	
 	display: block;
 	margin-bottom: 10px;
-	background-color: #196C6C;
+	background-color: #196464;
 	border-radius: 5px;
 	padding-left: 5px;
 	padding-bottom: 10px;
+	box-shadow: 1px 5px 10px rgba(0,0,0,0.5);
 }
 
 a
@@ -42,8 +37,6 @@ a
 	display: block;
 	color: #0A2B2B;
 }
-
-
 
 h3
 {
@@ -55,5 +48,11 @@ h3
 
 p
 {
-	padding: 4px;
+	padding-top: 6px;
+	padding-bottom: 6px;
 }
+
+a:visited
+	{
+	background-color: #DCDC80; 
+	}
