@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>GIM Twitter Feed Example</title>
+	<script src="http://code.jquery.com/jquery-1.7.2.js"></script>	
+	<script src="jquery.twitter-timeline.js"></script>
+	<script>
+		$(document).ready(function($) {
+			$("#tweets").twitterTimeline("@re");
+		});		
+	</script>
+</head>
+<body>
+	
+	<ul id="tweets"></ul>
+
+</body>
+</html>
