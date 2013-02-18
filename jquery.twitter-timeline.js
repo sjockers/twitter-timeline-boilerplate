@@ -8,7 +8,7 @@
 	// -- Private ------------------------------------------------------------------------------------------------------------------
 	//
 	
-	var tweetTemplate = '<li class="tweet">CONTENT<div class="time">TIME</div></li>'; 
+	var tweetTemplate = '<li class="tweet"><p>CONTENT</p><div class="time">TIME</div></li>'; 
 	var $container = null;
 
 	/**
@@ -23,7 +23,7 @@
 			dataType: 'jsonp',
 			data: {
 				screen_name: user,
-				include_rts: true,				
+				include_rts: true,		
 				include_entities: true
 			},			
 			success: displayTweets
