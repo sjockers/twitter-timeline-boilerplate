@@ -46,25 +46,7 @@ ul
 	margin-top: 50px;
 	margin-left: 250px;
 	margin-right: 250px;
-	padding: 20px;
-	border-radius: 7px;
-
-
-.retweeted{
-	background-color: rgba(220,50,100,0.8);
 }
-
-div.tweetHead img{
-	float: left;
-	margin: 5px;}
-
-header{
-	position: absolute; top: 0; left: 0%;
-	width: 100%;
-	height: 10%;
-	background-color: rgba(30,0,200, 0.2);
-} 
-
 
 ul li
 {
@@ -118,27 +100,3 @@ p, h3
 	padding-top: 7px;
 	padding-bottom: 7px;
 }
-
-
-footer{
-	margin-top: 20 px;
-	width:80%;
-	margin:auto;
-	text-align: center;
-	background-color: rgba(50,10,200,0.1);
-	border-radius: 10px;
-}
-
-footer p{
-	color: rgb(0,0,0);
-}
-
-a:visited
-	{
-	background-color: #DCDC80; 
-	}
-
-#startup{
-	float: right;
-}
-

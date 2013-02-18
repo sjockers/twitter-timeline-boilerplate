@@ -7,16 +7,14 @@
 	<script src="jquery.twitter-timeline.js"></script>
 	<script>
 		$(document).ready(function($) {
-		
-	
+			$("#tweets").twitterTimeline({mode:"timeline", user: "@HTW_Berlin"});
+
 			function doSearch() {
-				$("#startup").remove();
 				var term = $("#search").val();
 				$("#tweets").twitterTimeline({mode:"search", query: term});
 			}
 			
 			function getUser() {
-				$("#startup").remove();
 				var username = $("#user").val();
 				$("#tweets").twitterTimeline({mode:"timeline", user: username});
 			}
@@ -51,14 +49,10 @@
 </head>
 <body>
 
-<<<<<<< HEAD
-	<img src="fat_bird.png" id="startup" alt="a fat bird"/>
-=======
 	<div id="bg">
 		<img src="background.jpg" alt="background">
 	</div>
 
->>>>>>> 222d55235aeefdb2e72c4a8e1a0eb424d6e59603
 	<div id="inputs">
 		<form name="search-form" id="search-form" action="">
 			<input type="text" placeholder="Search" name="search" id="search">
@@ -72,7 +66,7 @@
 	</div>
 	
 	<ul id="tweets"></ul>
-	<footer><p>Copyright by awesome people. And blabla, you know what I mean.</p></footer>
+
 </body>
 
 </html>
