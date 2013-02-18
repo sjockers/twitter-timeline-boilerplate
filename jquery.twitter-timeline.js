@@ -39,10 +39,16 @@
 			var tweet = tweetTemplate
 				.replace('CONTENT', ify.clean(data[i].text))
 				.replace('TIME', timeAgo(data[i].created_at));
-				
-			$container.append(tweet); 
-		};		
+			
+			console.log(data);
+			displayName(data.name);
+			$container.append(tweet);
+		};
 	};
+
+	function displayName(name) {
+		$container.append("<h1>").text(name);
+	}
 
 	//
 	// -- Private utility functions ------------------------------------------------------------------------------------------------------------------
@@ -164,10 +170,8 @@
 		* @param {string} twitter user name (scren name with or without the @-prefix)		
 		*/	
 	$.fn.twitterTimeline = function(user) {
-		
-		$container = $(this);		
+		$container = $(this);
 		loadTweets(user);
-	
 	};
 	
 })(jQuery);
