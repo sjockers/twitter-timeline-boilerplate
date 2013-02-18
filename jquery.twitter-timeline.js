@@ -8,25 +8,43 @@
 	// -- Private ------------------------------------------------------------------------------------------------------------------
 	//
 	
-	var tweetTemplate = '<li class="tweet">CONTENT<div class="time">TIME</div></li>'; 
+	var tweetTemplate = '<li class="tweet"><p>CONTENT</p><div class="time">TIME</div></li>'; 
+
 	var $container = null;
 
 	/**
 		* load some tweets using the user_timeline API
 		* documentation: https://dev.twitter.com/docs/api/1/get/statuses/user_timeline
-		* @param {string} twitter user name (scren name with or without the @-prefix)
+		* @param {string} twitter user name (screen name with or without the @-prefix)
+
 		*/
-	function loadTweets(user) {
+	function loadTimeline(user) {
 		$.ajax({
 			url: 'http://api.twitter.com/1/statuses/user_timeline.json/',
 			type: 'GET',
 			dataType: 'jsonp',
 			data: {
 				screen_name: user,
+
 				include_rts: true,				
+
 				include_entities: true
 			},			
-			success: displayTweets
+			success: displayTimeline
+		});
+	};
+
+	function loadSearch(query) {
+		$.ajax({
+			url: 'http://search.twitter.com/search.json',
+			type: 'GET',
+			dataType: 'jsonp',
+			data: {
+				q: query,
+				include_rts: true,
+				include_entities: true
+			},			
+			success: displaySearchResults
 		});
 	};
 
@@ -34,15 +52,73 @@
 		* add tweets to the DOM using a simple template
 		* @param {object} data returned from Twitter API
 		*/
-	function displayTweets(data) {
-		for (var i = 0; i < data.length; i++) {
-			var tweet = tweetTemplate
-				.replace('CONTENT', ify.clean(data[i].text))
-				.replace('TIME', timeAgo(data[i].created_at));
+	function displayTimeline(data) {
+		$container.fadeOut(150, function() {
+			$container.empty();
+			for (var i = 0; i < data.length; i++) {
+				var tweet = $(tweetTemplate
+					.replace('CONTENT', ify.clean(data[i].text))
+					.replace('TIME', timeAgo(data[i].created_at)));
 				
-			$container.append(tweet); 
-		};		
+				console.log(data);
+
+				var tweetHeader = $("<div/>").addClass("tweetHead");
+				tweetHeader.append(positionPicture(data[i].user.profile_image_url));
+				tweetHeader.append(formatName(data[i].user.name));
+				
+
+				if(data.retweeted == true){
+					$("li").addClass("retweeted");
+				}
+
+				tweet.prepend(tweetHeader);
+
+				$container.append(tweet);
+				$container.fadeIn(150);
+			};
+		});
 	};
+
+	function displaySearchResults(data) {	
+		$container.fadeOut(150, function() {
+			var results = data.results;
+			$container.empty();
+			for (var i = 0; i < results.length; i++) {
+				var tweet = $(tweetTemplate
+					.replace('CONTENT', ify.clean(results[i].text))
+					.replace('TIME', timeAgo(results[i].created_at)));
+				
+				var tweetHeader = $("<div/>").addClass("tweetHead");
+				tweetHeader.append(positionPicture(results[i].profile_image_url));
+				tweetHeader.append(formatName(results[i].from_user_name));
+				
+
+				if(data.retweeted == true){
+					$("li").addClass("retweeted");
+				}
+
+				//tweet.prepend(positionPicture(results[i].profile_image_url));
+				//tweet.prepend(formatName(results[i].from_user_name));
+
+				tweet.prepend(tweetHeader);
+				$container.append(tweet);
+				$container.fadeIn(150);
+			};
+		});
+	}
+
+	function formatName(name) {
+		return $("<h3/>").text(name);
+	}
+
+
+	function positionPicture(profPicUrl){ 
+		return $("<img/>").attr("src", profPicUrl);
+	}
+	
+
+	
+	
 
 	//
 	// -- Private utility functions ------------------------------------------------------------------------------------------------------------------
@@ -157,17 +233,20 @@
 
 	//
 	// -- Public ------------------------------------------------------------------------------------------------------------------
-	//	
+	//
 
 	/**
 		* Initialize the timeline (public)
 		* @param {string} twitter user name (scren name with or without the @-prefix)		
 		*/	
-	$.fn.twitterTimeline = function(user) {
-		
-		$container = $(this);		
-		loadTweets(user);
-	
+	$.fn.twitterTimeline = function(options) {
+		$container = $(this);
+		if (options.mode == "timeline")
+			loadTimeline(options.user);
+		else if (options.mode == "search")
+			loadSearch(options.query);
 	};
 	
+
 })(jQuery);
+

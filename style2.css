@@ -1,0 +1,109 @@
+body 
+{
+	font-family: Verdana, Helvetica, sans-serif;
+	color: #C8DBE0;
+	font-size: 14px;
+}
+
+div#bg
+{ 
+	position: fixed;
+	top: 0px;
+	left:0px;
+	animation: fly 100s infinite alternate;
+	-webkit-animation: fly 100s infinite alternate;
+	-moz-animation: fly 100s infinite alternate;
+	-o-animation: fly 100s infinite alternate;
+	z-index: -10;
+}
+
+@keyframes fly
+{
+	from { left:0px;}
+	to {left:-800px;}
+}
+
+@-moz-keyframes fly /* Firefox */
+{
+	from {left:0px;}
+	to {left:-800px;}
+}
+
+@-webkit-keyframes fly /* Safari and Chrome */
+{
+	from {left:0px;}
+	to {left:-800px;}
+}
+
+@-o-keyframes fly /* Opera */
+{
+	from {left:0px;}
+	to {left:-800px;}
+} 
+
+ul
+{
+	margin-top: 50px;
+	margin-left: 250px;
+	margin-right: 250px;
+}
+
+ul li
+{
+	display: block;
+	margin-bottom: 10px;
+	background-color: rgba(89,116,125,0.8);
+	border-radius: 5px;
+	padding: 11px;
+	box-shadow: 1px 5px 10px rgba(0,0,0,0.5);
+	opacity: 0.8;
+}
+
+.tweetHead img {
+	margin: 0 10px 5px 0;
+	float: left;
+}
+
+div#inputs
+{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 40px;
+	overflow: auto;
+	background-color: rgba(255,255,255,0.3);
+	text-align: center;
+	z-index: 10;
+}
+
+div#inputs form
+{
+	padding-top: 8px;
+	display: inline-block;
+}
+
+a
+{
+	text-decoration: none;
+	color: #0A2B2B;
+}
+
+h3
+{
+	font-weight: bold;
+	font-size: 17px;
+}
+
+p, h3
+{
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+
+#startup{
+	position: absolute;
+	top: 30%;
+	left:50%;
+	margin-left: -135.5px;
+	}
