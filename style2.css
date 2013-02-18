@@ -60,14 +60,12 @@ a
 h3
 {
 	font-weight: bold;
-	padding-bottom: 7px;
-	padding-top: 7px;
 	font-size: 17px;
 }
 
-p
+p, h3
 {
-	padding-top: 6px;
-	padding-bottom: 6px;
+	padding-top: 7px;
+	padding-bottom: 7px;
 }
 
